@@ -2,6 +2,8 @@
 // as decimal strings and are parsed to bigint here; nothing in the console
 // turns an amount into a Number.
 
+import { apiBase, apiURL } from "./apibase";
+
 export type Chain = "gno" | "ethereum";
 
 export interface Provenance {
@@ -428,7 +430,7 @@ export interface Overview {
 }
 
 async function get<T>(path: string): Promise<T> {
-  const res = await fetch(path, { headers: { Accept: "application/json" } });
+  const res = await fetch(apiURL(apiBase, path), { headers: { Accept: "application/json" } });
   if (!res.ok) throw new Error(`${path}: http ${res.status}`);
   return (await res.json()) as T;
 }

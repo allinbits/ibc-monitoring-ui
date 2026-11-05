@@ -1,5 +1,5 @@
 {
-  "name": "ibc-monitoring-console",
+  "name": "ibc-monitoring-ui",
   "private": true,
   "version": "0.1.0",
   "type": "module",
